@@ -1,1 +1,0 @@
-Посилання на презинтацію: https://www.canva.com/design/DAFyLoRVWSQ/iiQehZDUsVW1PjPD2RKKoA/edit?utm_content=DAFyLoRVWSQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
