@@ -1,4 +1,3 @@
-# AFT-homework
+# Презентація -  Їдло з дому
 
-1. Create a folder with your name
-2. Upload all the homework tasks there in subfolders homework-1, homework-2 and so on
+<https://docs.google.com/presentation/d/1MWKCoaSFCCLTP5OZ37oPvWPM0eIeQJjWyEJwUBTFXjU/edit?usp=sharing>
