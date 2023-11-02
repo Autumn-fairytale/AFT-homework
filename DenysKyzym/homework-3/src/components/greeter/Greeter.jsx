@@ -15,7 +15,7 @@ export const Greeter = () => {
   };
 
   if (isSubmitted) {
-    return <h2 style={styles.container}>Привет, {name}!</h2>;
+    return <h2 style={styles.container}>Hello, {name}!</h2>;
   }
 
   return (
