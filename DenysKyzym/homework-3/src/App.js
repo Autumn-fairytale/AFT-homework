@@ -1,7 +1,12 @@
 import './App.css';
+import { ClassBasedGreeter } from './components/greeter/ClassBasedGreeter';
 
 function App() {
-  return <div className="App">Hi</div>;
+  return (
+    <>
+      <ClassBasedGreeter />
+    </>
+  );
 }
 
 export default App;
