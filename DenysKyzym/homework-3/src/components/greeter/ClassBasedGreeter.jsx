@@ -1,28 +1,5 @@
 import React from 'react';
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '90vh',
-  },
-  input: {
-    padding: '10px',
-    margin: '10px 0',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-  },
-  button: {
-    padding: '10px 15px',
-    borderRadius: '5px',
-    backgroundColor: '#007BFF',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
-  },
-};
+import { styles } from './greeterStyles';
 
 export class ClassBasedGreeter extends React.Component {
   constructor(props) {
@@ -60,6 +37,7 @@ export class ClassBasedGreeter extends React.Component {
               value={this.state.name}
               onChange={this.handleChange}
               style={styles.input}
+              placeholder="class based"
             />
           </label>
           <button type="submit" style={styles.button}>
