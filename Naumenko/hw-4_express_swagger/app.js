@@ -1,27 +1,25 @@
-import { addUser } from "./controllers/users/createUser/index.js";
-import { getAll } from "./controllers/users/getAllUsers/index.js";
-import { getById } from "./controllers/users/getById/index.js";
+import fs from "fs/promises";
+import express from "express";
+import moment from "moment";
+import cors from "cors";
+import { controllers } from "./controllers/index.js";
 
-const invokeAction = async ({ action, id, name, login, password, status }) => {
-  switch (action) {
-    case "read":
-      const allUsers = await getAll();
-      return console.log("allUsers:", allUsers);
-    case "getById":
-      const user = await getById(id);
-      return console.log("user:", user);
-    case "createUser":
-      const newUser = await addUser({ name, login, password, status });
-      return console.log(newUser);
-  }
-};
+const app = express();
 
-invokeAction({ action: "read" });
-// invokeAction({ action: "getById", id: "9" });
-// invokeAction({
-//   action: "createUser",
-//   name: "Mykola",
-//   login: "MK",
-//   password: "123",
-//   status: "active",
-// });
+app.use(cors());
+app.use(express.json());
+
+app.use(async (req, res, next) => {
+  const { method, url } = req;
+  const date = moment().format("DD-MM-YYYY_hh:mm:ss");
+  await fs.appendFile("./server.log", `\n${method} ${url} ${date}`);
+  next();
+});
+
+controllers(app);
+
+app.use((req, res) => {
+  res.status(404).json({ message: "Notfound" });
+});
+
+app.listen(3000, () => console.log("Server running"));

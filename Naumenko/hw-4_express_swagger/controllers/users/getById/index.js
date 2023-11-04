@@ -1,7 +1,12 @@
-import { getAll } from "../getAllUsers/index.js";
+import { getById } from "./helpers.js";
 
-export const getById = async (id) => {
-  const users = await getAll();
-  const result = users.find((user) => user.id === id);
-  return result || null;
+export const set = (app) => {
+  app.get("/api/users/:id", (req, res) => {
+    const id = req.params.id;
+    const user = getById(id);
+    if (!user) {
+      return res.status(404).json({ message: "Not found" });
+    }
+    res.json(user);
+  });
 };
