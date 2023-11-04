@@ -1,5 +1,5 @@
-export const set = (app) => {
-  app.post("/api/register", (req, res) => {
-    res.json(req.body);
-  });
+import { createUser } from "./helpers.js";
+
+export const register = (app) => {
+  app.post("/api/register", createUser);
 };

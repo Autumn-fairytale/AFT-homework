@@ -1,6 +1,6 @@
-import { users } from "../users.js";
+import { users } from "../../../db/users.js";
 
-export const set = (app) => {
+export const getUsers = (app) => {
   app.get("/api/users", (req, res) => {
     res.json(users);
   });

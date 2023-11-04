@@ -1,8 +1,13 @@
 import fs from "fs/promises";
+
+import "dotenv/config";
+
 import express from "express";
 import moment from "moment";
 import cors from "cors";
 import { controllers } from "./controllers/index.js";
+
+
 
 const app = express();
 

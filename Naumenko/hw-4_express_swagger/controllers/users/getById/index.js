@@ -1,6 +1,6 @@
 import { getById } from "./helpers.js";
 
-export const set = (app) => {
+export const getUserById = (app) => {
   app.get("/api/users/:id", (req, res) => {
     const id = req.params.id;
     const user = getById(id);
