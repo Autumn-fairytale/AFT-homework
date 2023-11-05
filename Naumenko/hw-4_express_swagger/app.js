@@ -14,7 +14,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Library API",
+      title: "Homework 4 express and swagger",
       version: "1.0.0",
       description: "A simple Express Library API",
     },
