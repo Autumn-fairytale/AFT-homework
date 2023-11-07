@@ -1,0 +1,31 @@
+{
+  "name": "homework-03",
+  "version": "1.0.0",
+  "description": "Home work 03",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Andrii Zaimak <dev.andrii.zaimak@gmail.com> (https://github.com/Zaimak-Andrii)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.11.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "imports": {
+    "#routes/*": "./src/routes/*",
+    "#controllers/*": "./src/controllers/*",
+    "#helpers/*": "./src/helpers/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#schemas/*": "./src/schemas/*"
+  }
+}
