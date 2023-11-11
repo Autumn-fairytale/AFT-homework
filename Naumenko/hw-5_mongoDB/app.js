@@ -1,14 +1,21 @@
+// Mongo_password: TnjTm5YMYa7LqfT9
+
 /* eslint-disable no-undef */
 import fs from "fs/promises";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 
-import "dotenv/config";
+import "dotenv/config.js";
 
 import express from "express";
 import moment from "moment";
 import cors from "cors";
 import { controllers } from "./controllers/index.js";
+// import mongoose from "mongoose";
+// mongoose.set("strictQuery", true);
+
+// const DB_HOST =
+//   "mongodb+srv://Mykola:TnjTm5YMYa7LqfT9@cluster0.yjtamal.mongodb.net/idlo?retryWrites=true&w=majority";
 
 const options = {
   definition: {
@@ -29,7 +36,12 @@ const options = {
 
 const specs = swaggerJSDoc(options);
 
-const app = express();
+// mongoose.connect(DB_HOST).then(() => {
+//   console.log("AAaaaa");
+//   app.listen(3000, console.log("Appp"));
+// });
+
+export const app = express();
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 app.use(cors());
@@ -47,5 +59,3 @@ controllers(app);
 app.use((req, res) => {
   res.status(404).json({ message: "Notfound" });
 });
-
-app.listen(3000, () => console.log("Server running"));

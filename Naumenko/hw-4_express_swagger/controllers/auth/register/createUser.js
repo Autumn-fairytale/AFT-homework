@@ -1,10 +1,9 @@
-// import { User } from "../../../models/user.js";
+import { nanoid } from "nanoid";
+import { users } from "../../../db/users.js";
 
-// export const addUser = (app) => {
-//   app.post("/api/register", async (req, res) => {
-//     console.log("req.body:", req.bod);
-//     const result = await User.create(req.body);
-//     console.log("result:", result);
-//     res.status(201).json(result);
-//   });
-// };
+export const createUser = (req, res) => {
+  const body = req.body;
+  const user = { id: nanoid(), ...body, status: "active" };
+  users.push(user);
+  res.status(201).json(user);
+};

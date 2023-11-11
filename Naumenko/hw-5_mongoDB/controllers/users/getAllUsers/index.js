@@ -1,7 +1,8 @@
-import { users } from "../../../db/users.js";
+import { User } from "../../../models/user.js";
 
 export const getUsers = (app) => {
-  app.get("/api/users", (req, res) => {
+  app.get("/api/users", async (req, res) => {
+    const users = await User.find();
     res.json(users);
   });
 };

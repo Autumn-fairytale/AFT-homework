@@ -1,6 +1,6 @@
-// import { users } from "../../../db/users.js";
+import { users } from "../../../db/users.js";
 
-// export const getById = (id) => {
-//   const result = users.find((user) => user.id === id);
-//   return result || null;
-// };
+export const getById = (id) => {
+  const result = users.find((user) => user.id === id);
+  return result || null;
+};
