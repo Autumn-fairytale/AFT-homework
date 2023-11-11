@@ -3,8 +3,7 @@ import { app } from "./app.js";
 import mongoose from "mongoose";
 mongoose.set("strictQuery", true);
 
-const DB_HOST =
-  "mongodb+srv://Mykola:TnjTm5YMYa7LqfT9@cluster0.yjtamal.mongodb.net/idlo?retryWrites=true&w=majority";
+const { DB_HOST } = process.env;
 
 // підключення до БД
 

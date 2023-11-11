@@ -11,7 +11,7 @@ import express from "express";
 import moment from "moment";
 import cors from "cors";
 import { controllers } from "./controllers/index.js";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 // mongoose.set("strictQuery", true);
 
 // const DB_HOST =

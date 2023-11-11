@@ -1,0 +1,122 @@
+[
+  {
+    "name": "John Doe",
+    "password": "password123",
+    "email": "john.doe@example.com",
+    "phone": "1234567890",
+    "location": "City A",
+    "avatarURL": "http://example.com/avatar1.jpg",
+    "token": "token123",
+    "role": "user",
+    "chef": "chef_id_1",
+    "courier": "courier_id_1"
+  },
+  {
+    "name": "Jane Doe",
+    "password": "password456",
+    "email": "jane.doe@example.com",
+    "phone": "9876543210",
+    "location": "City B",
+    "avatarURL": "http://example.com/avatar2.jpg",
+    "token": "token456",
+    "role": "chef",
+    "chef": "chef_id_2",
+    "courier": "courier_id_2"
+  },
+  {
+    "name": "Alice Johnson",
+    "password": "alice123",
+    "email": "alice.johnson@example.com",
+    "phone": "5556667777",
+    "location": "City C",
+    "avatarURL": "http://example.com/avatar3.jpg",
+    "token": "token789",
+    "role": "user",
+    "chef": "chef_id_3",
+    "courier": "courier_id_3"
+  },
+  {
+    "name": "Bob Smith",
+    "password": "bob456",
+    "email": "bob.smith@example.com",
+    "phone": "1112223333",
+    "location": "City D",
+    "avatarURL": "http://example.com/avatar4.jpg",
+    "token": "token987",
+    "role": "courier",
+    "chef": "chef_id_4",
+    "courier": "courier_id_4"
+  },
+  {
+    "name": "Eva White",
+    "password": "eva789",
+    "email": "eva.white@example.com",
+    "phone": "9998887777",
+    "location": "City E",
+    "avatarURL": "http://example.com/avatar5.jpg",
+    "token": "token654",
+    "role": "user",
+    "chef": "chef_id_5",
+    "courier": "courier_id_5"
+  },
+  {
+    "name": "Charlie Brown",
+    "password": "charlie123",
+    "email": "charlie.brown@example.com",
+    "phone": "4445556666",
+    "location": "City F",
+    "avatarURL": "http://example.com/avatar6.jpg",
+    "token": "token321",
+    "role": "user",
+    "chef": "chef_id_6",
+    "courier": "courier_id_6"
+  },
+  {
+    "name": "Grace Miller",
+    "password": "grace456",
+    "email": "grace.miller@example.com",
+    "phone": "7778889999",
+    "location": "City G",
+    "avatarURL": "http://example.com/avatar7.jpg",
+    "token": "token789",
+    "role": "chef",
+    "chef": "chef_id_7",
+    "courier": "courier_id_7"
+  },
+  {
+    "name": "Daniel Lee",
+    "password": "daniel789",
+    "email": "daniel.lee@example.com",
+    "phone": "3334445555",
+    "location": "City H",
+    "avatarURL": "http://example.com/avatar8.jpg",
+    "token": "token654",
+    "role": "user",
+    "chef": "chef_id_8",
+    "courier": "courier_id_8"
+  },
+  {
+    "name": "Olivia Turner",
+    "password": "olivia123",
+    "email": "olivia.turner@example.com",
+    "phone": "6667778888",
+    "location": "City I",
+    "avatarURL": "http://example.com/avatar9.jpg",
+    "token": "token321",
+    "role": "courier",
+    "chef": "chef_id_9",
+    "courier": "courier_id_9"
+  },
+  {
+    "name": "Samuel Wright",
+    "password": "samuel456",
+    "email": "samuel.wright@example.com",
+    "phone": "2223334444",
+    "location": "City J",
+    "avatarURL": "http://example.com/avatar10.jpg",
+    "token": "token987",
+    "role": "user",
+    "chef": "chef_id_10",
+    "courier": "courier_id_10"
+  }
+]
