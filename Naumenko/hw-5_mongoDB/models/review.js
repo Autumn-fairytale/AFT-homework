@@ -2,16 +2,16 @@ import { Schema, model } from "mongoose";
 
 const reviewSchema = new Schema(
   {
-    user: { type: Schema.Types.ObjectId, ref: "user", required: true },
+    owner: { type: Schema.Types.ObjectId, ref: "user", required: true },
     dish: { type: Schema.Types.ObjectId, ref: "dish", required: true },
     rating: { type: Number, required: true },
-    comment: { type: String },
+    review: { type: String, required: true },
   },
   { versionKey: false, timestamps: true }
 );
 
+// У разі помилки валідації треба до схеми додати мідлвару
 reviewSchema.post("save", (error, data, next) => {
-  console.log(error);
   error.status = 400;
   next();
 });

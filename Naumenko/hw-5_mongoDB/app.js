@@ -21,7 +21,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Homework 4 express and swagger",
+      title: "Homework 5 express and swagger",
       version: "1.0.0",
       description: "A simple Express Library API",
     },
@@ -36,17 +36,14 @@ const options = {
 
 const specs = swaggerJSDoc(options);
 
-// mongoose.connect(DB_HOST).then(() => {
-//   console.log("AAaaaa");
-//   app.listen(3000, console.log("Appp"));
-// });
-
 export const app = express();
+// Мідлвара для swagger
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 app.use(cors());
 app.use(express.json());
 
+// Логування у файл
 app.use(async (req, res, next) => {
   const { method, url } = req;
   const date = moment().format("DD-MM-YYYY_hh:mm:ss");

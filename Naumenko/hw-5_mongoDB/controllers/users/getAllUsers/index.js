@@ -1,10 +1,14 @@
+import { ctrlWrapper } from "../../../helpers/ctrlWrapper.js";
 import { User } from "../../../models/user.js";
 
-export const getUsers = (app) => {
-  app.get("/api/users", async (req, res) => {
-    const users = await User.find();
-    res.json(users);
-  });
+export const getUsers = async (app) => {
+  app.get(
+    "/api/users",
+    ctrlWrapper(async (req, res) => {
+      const users = await User.find();
+      res.status(200).json(users);
+    })
+  );
 };
 
 // ==============================
