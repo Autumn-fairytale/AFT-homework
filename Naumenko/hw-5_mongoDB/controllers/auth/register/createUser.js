@@ -12,7 +12,7 @@ export const register = async (app) => {
     ctrlWrapper(async (req, res) => {
       const { password, email } = req.body;
 
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email }).exec();
 
       if (user) {
         throw HttpError(409, "Email in use");
@@ -23,7 +23,7 @@ export const register = async (app) => {
         ...req.body,
 
         password: createHashPassword,
-      });
+      }).exec();
 
       res.status(201).json(result);
     })

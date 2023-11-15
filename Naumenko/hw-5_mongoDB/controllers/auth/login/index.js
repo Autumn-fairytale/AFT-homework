@@ -16,8 +16,7 @@ export const login = async (app) => {
       const { email, password } = req.body;
       console.log("SECRET_KEY:", SECRET_KEY);
 
-      const user = await User.findOne({ email });
-      console.log("user:", user);
+      const user = await User.findOne({ email }).exec();
 
       if (!user) {
         throw HttpError(401, "Email or password is wrong");
