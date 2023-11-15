@@ -41,6 +41,7 @@ export const app = express();
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Логування у файл
@@ -55,4 +56,10 @@ controllers(app);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Notfound" });
+});
+
+app.use((err, req, res, next) => {
+  console.log("err in use:", err);
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).json({ message });
 });

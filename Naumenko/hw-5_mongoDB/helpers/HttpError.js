@@ -8,6 +8,8 @@ const errorMessageList = {
 
 export const HttpError = (status, message = errorMessageList[status]) => {
   const error = new Error(message);
+  console.log("error HttpError:", error);
   error.status = status;
+  console.log("error.status HttpError:", error.status);
   return error;
 };

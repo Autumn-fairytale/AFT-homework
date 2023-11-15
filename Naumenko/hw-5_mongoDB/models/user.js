@@ -1,4 +1,7 @@
 import { Schema, model } from "mongoose";
+import { handleMongooseError } from "../helpers/handleMongooseError.js";
+
+const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const userSchema = new Schema(
   {
@@ -8,10 +11,12 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
+      minLength: 6,
       required: [true, "Set password for user"],
     },
     email: {
       type: String,
+      match: emailRegex,
       required: [true, "Email is required"],
       unique: true,
     },
@@ -23,7 +28,6 @@ const userSchema = new Schema(
     location: {
       type: String,
       required: [true, "Location is required"],
-      unique: true,
     },
     avatarURL: String,
     token: {
@@ -44,13 +48,10 @@ const userSchema = new Schema(
       ref: "courier",
     },
   },
+
   { versionKey: false, timestamps: true }
 );
 
-userSchema.post("save", (error, data, next) => {
-  console.log(error);
-  error.status = 400;
-  next();
-});
+userSchema.post("save", handleMongooseError);
 
 export const User = model("user", userSchema);

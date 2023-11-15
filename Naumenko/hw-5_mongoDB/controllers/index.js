@@ -1,5 +1,5 @@
-// import { login } from "./auth/login/index.js";
-import { register } from "./auth/register/index.js";
+import { login } from "./auth/login/index.js";
+import { register } from "./auth/register/createUser.js";
 import { addReview } from "./reviews/addReview/addReview.js";
 import { getAllReviews } from "./reviews/getAllReviews/getAllReviews.js";
 
@@ -14,7 +14,8 @@ export const controllers = (app) => {
   addReview(app);
   // addUser(app);
   // getUserById(app);
+
   register(app);
-  // login(app);
+  login(app);
   addTask(app);
 };

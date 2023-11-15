@@ -1,21 +1,39 @@
-// import jwt from "jsonwebtoken";
-// import { users } from "../../../db/users.js";
+import jwt from "jsonwebtoken";
+import loginSchema from "../../../schemas/loginSchema.js";
+import bcrypt from "bcrypt";
+import { ctrlWrapper } from "../../../helpers/ctrlWrapper.js";
+import { User } from "../../../models/user.js";
+import { HttpError } from "../../../helpers/HttpError.js";
+import { validateBody } from "../../../middlewares/validateBody.js";
 
-// const { SECRET_KEY } = process.env;
+const { SECRET_KEY } = process.env;
 
-// export const login = (app) => {
-//   app.post("/api/login", (req, res) => {
-//     const { login, password } = req.body;
-//     const user = users.find((user) => user.login === login);
-//     if (!user) {
-//       return res.sendStatus(401);
-//     }
+export const login = async (app) => {
+  app.post(
+    "/api/login",
+    validateBody(loginSchema),
+    ctrlWrapper(async (req, res) => {
+      const { email, password } = req.body;
+      console.log("SECRET_KEY:", SECRET_KEY);
 
-//     if (user.password !== password) {
-//       return res.sendStatus(401);
-//     }
-//     const payload = req.body;
-//     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "23h" });
-//     res.json({ token });
-//   });
-// };
+      const user = await User.findOne({ email });
+      console.log("user:", user);
+
+      if (!user) {
+        throw HttpError(401, "Email or password is wrong");
+      }
+
+      const passwordCompare = await bcrypt.compare(password, user.password);
+      console.log("passwordCompare:", passwordCompare);
+
+      if (!passwordCompare) {
+        throw HttpError(401, "Email or password is wrong");
+      }
+
+      const payload = { id: user._id };
+
+      const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "23h" });
+      res.json({ token });
+    })
+  );
+};
