@@ -10,7 +10,6 @@ export const getReviewsByChefId = (app) => {
 
     async (req, res) => {
       const { chefId } = req.params;
-      console.log("chefId:", chefId);
 
       try {
         const reviews = await Review.aggregate([
