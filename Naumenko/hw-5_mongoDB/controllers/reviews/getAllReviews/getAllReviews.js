@@ -1,12 +1,5 @@
 import { Review } from "../../../models/review.js";
 
-// export const getReviews = (app) => {
-//   app.get("/api/reviews", async (req, res) => {
-//     const users = await Review.find();
-//     res.json(users);
-//   });
-// };
-
 export const getAllReviews = (app) => {
   app.get("/api/reviews", async (req, res) => {
     try {

@@ -23,7 +23,7 @@ export const register = async (app) => {
         ...req.body,
 
         password: createHashPassword,
-      }).exec();
+      });
 
       res.status(201).json(result);
     })

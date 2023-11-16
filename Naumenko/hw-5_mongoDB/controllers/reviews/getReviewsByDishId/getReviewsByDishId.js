@@ -7,9 +7,12 @@ export const getReviewsByDishId = (app) => {
 
     ctrlWrapper(async (req, res) => {
       const { dishId } = req.params;
-      const data = await Review.find({ dish: dishId }).exec();
-      console.log("data:", data);
-      console.log("dishId:", dishId);
+      const data = await Review.find()
+        .populate({
+          path: "dish",
+          match: { dish: dishId },
+        })
+        .exec();
       res.status(200).json({ data });
     })
   );

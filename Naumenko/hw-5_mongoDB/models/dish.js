@@ -6,10 +6,10 @@ const dishSchema = new Schema(
       type: String,
       required: [true, "Dish name is required"],
     },
-    description: {
-      type: String,
-      required: [true, "Dish description is required"],
-    },
+    // description: {
+    //   type: String,
+    //   required: [true, "Dish description is required"],
+    // },
     chef: {
       type: Schema.Types.ObjectId,
       ref: "chef",
@@ -19,6 +19,4 @@ const dishSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-const Dish = model("dish", dishSchema);
-
-module.exports = Dish;
+export const Dish = model("dish", dishSchema);
