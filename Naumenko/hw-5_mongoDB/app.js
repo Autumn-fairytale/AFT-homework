@@ -34,6 +34,12 @@ const options = {
   apis: [
     "./controllers/users/getAllUsers/swagger.js",
     "./controllers/reviews/addReview/swagger.js",
+    "./controllers/reviews/getAllReviews/swagger.js",
+    "./controllers/reviews/deleteReview/swagger.js",
+    "./controllers/reviews/getReviewById/swagger.js",
+    "./controllers/reviews/getReviewsByChefId/swagger.js",
+    "./controllers/reviews/getReviewsByDishId/swagger.js",
+    "./controllers/reviews/updateReviewById/swagger.js",
   ],
 };
 

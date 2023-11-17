@@ -37,17 +37,18 @@ export const getReviewsByChefId = (app) => {
           // {
           //   $limit: 2,
           // },
-          // {
-          //   $project: {
-          //     rating: 1, // включити поле "rating"
-          //     review: 1, // включити поле "review"
-          //     "dish.name": 1, // включити поле "name" з вкладеного об'єкта "dish"
-          //     "dish.chef": 1, // включити поле "name" з вкладеного об'єкта "dish"
-          //   },
-          // },
+          {
+            $project: {
+              owner: 1,
+              rating: 1,
+              review: 1,
+              "dish.name": 1,
+              "dish.chef": 1,
+            },
+          },
         ]).exec();
 
-        res.status(200).json({ data: reviews });
+        res.status(200).json(reviews);
       } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal Server Error" });
