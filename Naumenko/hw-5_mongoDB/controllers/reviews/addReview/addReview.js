@@ -18,11 +18,11 @@ export const addReview = (app) => {
         dish: "654fe4de18f1f5f14f2e1cc1",
       };
 
-      const review = await Review.create(data);
+      const review = await Review.create(data, "-createdAt -updatedAt");
       if (!review) {
         throw HttpError(404, "Not found");
       }
-      res.status(201).json({ status: "success", code: 201, data: review });
+      res.status(201).json(review);
     }
   );
 };

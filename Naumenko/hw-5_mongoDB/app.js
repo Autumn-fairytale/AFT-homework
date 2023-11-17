@@ -21,7 +21,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Homework 5 express and swagger",
+      title: "Idlo",
       version: "1.0.0",
       description: "A simple Express Library API",
     },
@@ -31,7 +31,10 @@ const options = {
       },
     ],
   },
-  apis: ["./controllers/users/getAllUsers/swagger.js"],
+  apis: [
+    "./controllers/users/getAllUsers/swagger.js",
+    "./controllers/reviews/addReview/swagger.js",
+  ],
 };
 
 const specs = swaggerJSDoc(options);
