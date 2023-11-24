@@ -37,11 +37,6 @@
  *       type: http
  *       scheme: bearer
  *       description: Bearer token for authentication
- *   securitySchemes:
- *     BearerAuth:
- *       type: http
- *       scheme: bearer
- *       bearerFormat: JWT
  * tags:
  *   name: Reviews
  *   description: The reviews managing API
@@ -57,8 +52,8 @@
  *           name: Authorization
  *           required: true
  *           schema:
- *             $ref: '#/components/schemas/BearerAuth'
-
+ *              type: string
+ *           description: Bearer token for authentication
  *       requestBody:
  *         required: true
  *         content:

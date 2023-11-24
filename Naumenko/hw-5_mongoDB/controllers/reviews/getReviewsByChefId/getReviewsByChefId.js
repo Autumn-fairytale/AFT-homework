@@ -21,29 +21,55 @@ export const getReviewsByChefId = (app) => {
               as: "dish",
             },
           },
+          {
+            $lookup: {
+              from: "users",
+              localField: "owner",
+              foreignField: "_id",
+              as: "owner",
+            },
+          },
+          {
+            $project: {
+              // _id: 0,
+              // id: "$_id",
+              rating: 1,
+              review: 1,
+              dish: 1,
+              owner: 1,
 
+              createdAt: 1,
+              // dish: {
+              //   id: "$dish._id",
+              // },
+            },
+          },
           {
             $unwind: "$dish",
+          },
+          {
+            $unwind: "$owner",
           },
           {
             $match: {
               "dish.chef": new ObjectId(chefId),
             },
           },
-          // Можна додати пагінацію
-          // {
-          //   $skip: 0,
-          // },
-          // {
-          //   $limit: 2,
-          // },
           {
             $project: {
-              owner: 1,
+              _id: 0,
+              id: "$_id",
               rating: 1,
               review: 1,
-              "dish.name": 1,
-              "dish.chef": 1,
+              dish: {
+                id: "$dish._id",
+                chef: 1,
+              },
+              owner: {
+                id: "$owner._id",
+                name: 1,
+              },
+              createdAt: 1,
             },
           },
         ]).exec();
@@ -56,32 +82,3 @@ export const getReviewsByChefId = (app) => {
     }
   );
 };
-
-// import { ctrlWrapper } from "../../../helpers/ctrlWrapper.js";
-// import mongoose from "mongoose";
-// import { Review } from "../../../models/review.js";
-// // import { Dish } from "../../../models/dish.js"; // Додаємо імпорт моделі Dish
-
-// const ObjectId = mongoose.Types.ObjectId;
-
-// export const getReviewsByChefId = (app) => {
-//   app.get("/api/reviews/by-chef/:chefId", async (req, res) => {
-//     const { chefId } = req.params;
-//     console.log("chefId:", chefId);
-
-//     try {
-//       const reviews = await Review.find({})
-//         .populate({
-//           path: "dish",
-//           populate: { path: "chef" },
-//         })
-//         .find({ "dish.chef._id": new ObjectId(chefId) })
-//         .exec();
-
-//       res.status(200).json({ data: reviews });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ error: "Internal Server Error" });
-//     }
-//   });
-// };
