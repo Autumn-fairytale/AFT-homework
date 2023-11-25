@@ -10,6 +10,7 @@ export const getReviewsByChefId = (app) => {
 
     async (req, res) => {
       const { chefId } = req.params;
+      const { page = 1, limit = 1 } = req.query;
 
       try {
         const reviews = await Review.aggregate([
@@ -54,6 +55,12 @@ export const getReviewsByChefId = (app) => {
             $match: {
               "dish.chef": new ObjectId(chefId),
             },
+          },
+          {
+            $skip: (page - 1) * limit,
+          },
+          {
+            $limit: parseInt(limit),
           },
           {
             $project: {
