@@ -73,13 +73,6 @@ export const getReviewsByChefId = (app) => {
                   $count: "count",
                 },
               ],
-              checkEmptyReviews: [
-                {
-                  $match: {
-                    reviews: { $exists: true, $not: { $size: 0 } },
-                  },
-                },
-              ],
             },
           },
 
